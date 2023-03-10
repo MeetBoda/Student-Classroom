@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <!-- <style>
+        /* .header{
+            border: solid black 2px;
+            border-radius: 5px;
+            height: 100px;
+            margin-left: 10px;
+            margin-right: 10px; 
+            text-align: center;
+            align-content: center;
+            vertical-align: middle;
+            justify-content: center;
+        }*/
+        .nav_bar{
+            text-align: center;
+            font-size: 20px;
+        }
+        .box{
+            text-decoration: underline;
+            border: solid black 2px;
+        }
+        a{
+            color: black;
+            text-decoration-line: none ;
+        }
+    </style> -->
+</head>
+<body>
+    {% include "header.html" %}
+    <h1 style="text-align: center;">
+        Ask your Doubt
+    </h1>
+    <form action="askdoubt" style="margin-left: 15px; font-size: 25px;" method="POST">
+        {% csrf_token %}
+        Doubt:<input type="text" name="question">
+        <button>Post</button>
+    </form>
+
+    {% for i in doubt_list %}
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div>{{i.question}}  --- By {{i.user_id.name}}</div>
+            <form action="answerdoubt" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="doubt_id" value="{{i.doubt_id}}">
+                <input type="text" name="ans">
+                <input type="submit" value="Post">
+            </form>
+            <!-- <br> -->
+            <form action="viewanswers" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="doubt_id" value="{{i.doubt_id}}">
+                <input type="submit" value="View Answers">
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>

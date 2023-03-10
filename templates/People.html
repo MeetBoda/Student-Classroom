@@ -1,0 +1,63 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <style>
+        /* .header{
+            border: solid black 2px;
+            border-radius: 5px;
+            height: 100px;
+            margin-left: 10px;
+            margin-right: 10px; 
+            text-align: center;
+            align-content: center;
+            vertical-align: middle;
+            justify-content: center;
+        }*/
+        .nav_bar{
+            text-align: center;
+            font-size: 20px;
+        }
+        .box{
+            text-decoration: underline;
+            border: solid black 2px;
+        }
+        a{
+            color: black;
+            text-decoration-line: none ;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h2>Teacher</h2>
+    <pre style="margin-left: 15px; font-size: 20px;">
+        List of Teachers 
+        .
+        .
+        .
+    </pre>
+    <h2>Students</h2>
+    <pre style="margin-left: 15px; font-size: 20px;">
+        List of Students 
+        .
+        .
+        .
+    </pre> -->
+    <h3>Teachers</h3>
+    {% for i in people_list %}
+        {% if i.role == "Teacher" %}
+            <div>{{i.name}}</div>
+        {% endif %}
+    {% endfor %}
+    <br>
+    <h3>Students</h3>
+    {% for i in people_list %}
+        {% if i.role == "Student" %}
+            <div>{{i.name}}</div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

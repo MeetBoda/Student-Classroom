@@ -1,0 +1,61 @@
+{% include 'header.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" />
+    <title>Classroom</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/stream.css">
+    <!-- <style>
+        .header{
+            border: solid black 2px;
+            border-radius: 15px;
+            height: 150px;
+            font-size: 30px;
+            margin-left: 200px;
+            margin-right: 200px; 
+            padding-top: 30px;
+            background-image: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwY2xhc3Nyb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+            box-sizing: border-box;
+            text-align: center;
+            align-content: center;
+            vertical-align: middle;
+            justify-content: center;
+        }
+        
+    </style> -->
+</head>
+<body>
+    <div class="header">{{request.session.class_name}}
+        <!-- <input type="hidden" value="{{id}}"> -->
+    </div>
+    {% if request.session.role == "Teacher" %}
+    <form action="uploadmaterial" method="POST">
+        {% csrf_token %}
+        <button type="submit">Upload Material</button>
+    </form>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+    {% for i in material_list %}
+        <div style="text-align: center; margin-bottom: 18px;">
+            <div>{{i.material_title}}</div>
+            <div>Uploaded By {{i.user_id.name}}</div>
+            <div>{{i.study_material}}</div>
+        </div>
+
+    {% endfor %}
+    </div>
+    
+    
+    <!-- <pre style="text-align: center;">
+        Various Classroom Assignment, Study Material 
+        .
+        .
+        .
+    </pre> -->
+
+</body>
+</html>

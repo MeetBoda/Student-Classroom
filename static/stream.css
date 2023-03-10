@@ -1,0 +1,17 @@
+.header{
+    border: solid black 2px;
+    border-radius: 15px;
+    height: 150px;
+    font-size: 35px;
+    margin-left: 200px;
+    margin-right: 200px; 
+    padding-top: 30px;
+    background-image: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwY2xhc3Nyb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+    box-sizing: border-box;
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+    justify-content: center;
+    font-family: "Pathway Gothic One", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
